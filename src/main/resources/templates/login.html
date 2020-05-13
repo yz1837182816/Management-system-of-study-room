@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<title>充充电自习室管理员登录</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<!-- stylesheet css -->
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+	<link rel="stylesheet" href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}">
+	<link rel="stylesheet" href="../static/css/templatemo-blue.css" th:href="@{/css/templatemo-blue.css}">
+	<link rel="stylesheet" href="../static/css/diy.css" th:href="@{/css/diy.css}">
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse">
+
+<!-- preloader section -->
+<div class="preloader">
+	<div class="sk-spinner sk-spinner-wordpress">
+       <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!-- header section -->
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<img src="images/tm-easy-profile.png" th:src="@{/images/tm-easy-profile.png}" class="img-responsive img-circle tm-border" alt="templatemo easy profile">
+				<h1 class="diy-title bold shadow">Management system of charging study room</h1>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-3 col-md-6">
+				<form class="form-horizontal" method="post" th:action="@{/login}">
+					<span class="tm-title heading">管 理 员 登 录</span>
+					<div class="form-group">
+						<input type="text" name="username" class="form-control" id="inputEmail3" placeholder="用 户 名">
+						<i class="fa fa-user"></i>
+					</div>
+					<div class="form-group help">
+						<input type="password" name="password" class="form-control" id="inputPassword3" placeholder="密　码">
+						<i class="fa fa-lock"></i>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-default">登录</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</header>
+
+<!-- footer section -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<p>Copyright &copy; 2020. Design by Zhao Yang</p>
+				<ul class="social-icons">
+					<li><a target="_blank" href="tencent://message/?uin=1837182816&site=www.qq.com&menu=yes" class="fa fa-qq"></a></li>
+					<li><a href="https://github.com/yz1837182816" class="fa fa-github"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- javascript js -->
+<script src="../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script src="../static/js/jquery.backstretch.min.js" th:src="@{/js/jquery.backstretch.min.js}"></script>
+<script src="../static/js/custom.js" th:src="@{/js/custom.js}"></script>
+</body>
+</html>

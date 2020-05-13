@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理会员</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../../static/css/diy.css" th:href="@{/css/diy.css}">
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a>欢迎回来，杨老板</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" th:href="@{/toLogout}">安全退出</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li class="active">会员管理
+                </li>
+                <li class="active">会员续费
+                </li>
+            </ol>
+            <form action="#" method="post" th:action="@{/renew}">
+                <div class="form-signin">
+                    <h2 class="form-signin-heading">用户续费</h2>
+                    <br>
+                    <!-- class="sr-only"将label标签隐藏 -->
+                    <label for="time">时长或次数</label>
+                    <input type="text" class="form-control" id="time" name="time" placeholder="续费的时长或次数">
+                    <br>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">续费</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="../../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+<script src="../../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script src="../../static/js/jquery.backstretch.min.js" th:src="@{/js/jquery.backstretch.min.js}"></script>
+</body>
+</html>

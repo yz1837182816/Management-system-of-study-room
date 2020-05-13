@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/study_room?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: root
+    password: oscargk707yzyz.
+browser:
+  def-location: E:\360浏览器\360Chrome\Chrome\Application\360chrome.exe
+  init-url: http://127.0.0.1:8080

@@ -1,0 +1,13 @@
+.container {
+    margin-top: 15%;
+    width: 35%;
+}
+
+.btn-primary {
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+.form-control {
+    margin-bottom: 4px;
+}

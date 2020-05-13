@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理会员</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a>欢迎回来，杨老板和邵老板</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" th:href="@{/toLogout}">安全退出</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li class="active">会员管理
+                </li>
+                <li class="active">会员列表
+                </li>
+            </ol>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    用户注册
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <a href="#" th:href="@{/toInsert}"><button type="submit" class="btn btn-default">注册</button></a>
+                    </div>
+                </div>
+            </div>
+            <!--
+                列表展示
+            -->
+            <div class="table-responsive">
+                <table class="table table-striped ">
+                    <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>桌号</th>
+                        <th>注册时间</th>
+                        <th>时长</th>
+                        <th>到期时间</th>
+                        <th>类型</th>
+                        <th>状态</th>
+                        <th><div style="float: right;margin-right: 5em">操作</div></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="user:${list}">
+                        <td th:text="${user.getName()}">杨钊</td>
+                        <td th:text="${user.getTName()}">01</td>
+                        <td th:text="${#dates.format(user.getCreateTime(),'yyyy年MM月dd日')}">2020-5-10</td>
+                        <td th:text="${user.getDuration()}">30天</td>
+                        <td th:text="${#dates.format(user.getEndTime(),'yyyy年MM月dd日')}">2020-6-10</td>
+                        <td th:text="${user.getType()}">长期卡</td>
+                        <td th:text="${user.getState()}">使用中</td>
+                        <td>
+                            <div class="btn-group" style="float: right">
+                                <a href="#" th:href="@{|/toRenew/${user.getId()}|}" class="btn btn-success">续费</a>
+                                <a href="#" th:text="${user.getState()=='使用中'?'停卡':'激活'}" class="btn btn-warning" th:name="${user.getId()}" onclick="stp(this.name)">停卡</a>
+                                <a href="#" class="btn btn-danger" th:name="${user.getId()}" onclick="del(this.name)">注销</a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+<script src="../../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script src="../../static/js/jquery.backstretch.min.js" th:src="@{/js/jquery.backstretch.min.js}"></script>
+
+<script>
+    function del(data) {
+        if (confirm("确定要删除吗？")){
+            $.ajax({
+                url:"/delete",
+                data:{"data":data},
+                success: function () {alert("注销成功！");window.location.reload();}
+            });
+        }
+    }
+    function stp(data) {
+        $.ajax({
+            url:"/stopOrRerun",
+            data:{"data":data},
+            success: function () {window.location.reload();}
+        });
+    }
+</script>
+</body>
+</html>
